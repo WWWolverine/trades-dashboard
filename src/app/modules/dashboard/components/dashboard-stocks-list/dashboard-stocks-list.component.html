@@ -1,0 +1,40 @@
+<div class="dashboard">
+  <div class="dashboard__content">
+    <div class="dashboard__content-chart">
+      <ng-container *ngIf="this.symbolCompany | async as data">
+        <app-dashboard-stocks-chart [symbol]="data"></app-dashboard-stocks-chart>
+      </ng-container>
+    </div>
+    <div class="dashboard__content-info">
+      <ng-container *ngIf="(this.descriptionCompany | async) as data ; else noCompanyData">
+        <app-dashboard-stocks-view [company]="data"></app-dashboard-stocks-view>
+      </ng-container>
+      <ng-template #noCompanyData>
+        <div class="dashboard__stocks-content-loading">
+          <h1>Need click on company stock</h1>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+  <div class="dashboard__stocks">
+    <input [formControl]="search" class="dashboard__stocks-filter" placeholder="Search by symbol name"/>
+    <div class="dashboard__stocks-header">
+      <h3 class="dashboard__stocks-header-item">displaySymbol</h3>
+      <h3 class="dashboard__stocks-header-item">description</h3>
+      <h3 class="dashboard__stocks-header-item">currency</h3>
+      <h3 class="dashboard__stocks-header-item">symbol</h3>
+      <h3 class="dashboard__stocks-header-item">type</h3>
+    </div>
+    <ng-container *ngIf="stocks$  | async as stocks; else loading">
+      <div class="dashboard__stocks-content">
+        <app-dashboard-stocks-list-item (displayedStockBySymbol)="getCompany($event)"
+                                        [stocks]="stocks"></app-dashboard-stocks-list-item>
+      </div>
+    </ng-container>
+    <ng-template #loading>
+      <div class="dashboard__stocks-content-loading">
+        <h1>Loading...</h1>
+      </div>
+    </ng-template>
+  </div>
+</div>

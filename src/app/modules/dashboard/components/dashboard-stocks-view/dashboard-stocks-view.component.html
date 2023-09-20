@@ -1,0 +1,37 @@
+<ng-container [ngSwitch]="!!company!.name">
+  <div class="company" *ngSwitchCase="true">
+    <div class="company__profile">
+      <div class="company__profile-card">
+        <div class="company__profile-logo" *ngIf="!!company.logo">
+          <img class="company__profile-logo-img" src="{{company.logo}}">
+        </div>
+        <div class="company__profile-name">
+          <h1 class="company__profile-name-text">{{company.name}}</h1>
+        </div>
+      </div>
+      <div class="company__profile-country">
+        <h3>Country : {{company.country}}</h3>
+      </div>
+      <div class="company__profile-country">
+        <a target="_blank" href="{{company.weburl}}">{{company.weburl}}</a>
+      </div>
+    </div>
+    <div class="company__details">
+      <p class="company__details-item">
+        Market capitalization : {{company.marketCapitalization}}
+      </p>
+      <p class="company__details-item">
+        Ticker : {{company.ticker}}
+      </p>
+      <p class="company__details-item">
+        Exchange : {{company.exchange}}
+      </p>
+      <p class="company__details-item">
+        Phone : {{company.phone}}
+      </p>
+    </div>
+  </div>
+  <div *ngSwitchCase="false" class="company__noData">
+    <h1>No company data</h1>
+  </div>
+</ng-container>

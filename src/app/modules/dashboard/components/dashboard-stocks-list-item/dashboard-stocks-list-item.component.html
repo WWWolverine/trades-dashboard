@@ -1,0 +1,9 @@
+<ng-container *ngFor="let stock of stocks">
+  <div class="stocks" (click)="findBySymbol(stock.symbol)">
+    <p class="stocks-item">{{stock.displaySymbol}}</p>
+    <p class="stocks-item">{{stock.description}}</p>
+    <p class="stocks-item">{{stock.currency}}</p>
+    <p class="stocks-item">{{stock.symbol}}</p>
+    <p class="stocks-item">{{stock.type}}</p>
+  </div>
+</ng-container>

@@ -1,0 +1,30 @@
+.chart{
+  &__form{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  &__display{
+    max-height: 300px;
+  }
+  &__interval{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+
+    &-from, &-to{
+      display: flex;
+      flex-direction: column;
+      &-input{
+        width: 130px;
+        height: 30px;
+      }
+    }
+  }
+  &__select{
+    height: 33.2px;
+    align-self: end;
+  }
+}
