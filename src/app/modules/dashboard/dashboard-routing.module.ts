@@ -8,12 +8,8 @@ export const ROUTES: Routes = [
   {
     path: '',
     pathMatch: "full",
-    redirectTo: "actions"
-  },
-  {
-    path: 'actions',
     component: DashboardStocksListComponent
-  }
+  },
 ];
 
 @NgModule({
